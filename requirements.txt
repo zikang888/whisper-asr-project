@@ -1,0 +1,53 @@
+# Whisper ASR Training Project
+# Dependencies for the complete training pipeline
+
+# ====================
+# Core Deep Learning
+# ====================
+torch>=2.0.0
+torchaudio>=2.0.0
+torchaudio>=2.0.0
+
+# ====================
+# Transformers & Data
+# ====================
+transformers>=4.30.0
+datasets>=2.14.0,<=2.20.0  # Keep compatible with older versions
+tokenizers>=0.15.0
+accelerate>=0.20.0
+
+# ====================
+# Audio Processing
+# ====================
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# ====================
+# Evaluation Metrics
+# ====================
+evaluate>=0.4.0
+jiwer>=3.0.0
+
+# ====================
+# Data Processing
+# ====================
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# ====================
+# Visualization
+# ====================
+matplotlib>=3.7.0
+
+# ====================
+# Configuration
+# ====================
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# ====================
+# Utilities
+# ====================
+tqdm>=4.65.0
+requests>=2.30.0
