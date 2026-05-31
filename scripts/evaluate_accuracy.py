@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
 import torch
 from datasets import load_dataset
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
@@ -10,8 +13,7 @@ print("Evaluating Model Accuracy (WER/CER)")
 print("="*60)
 print()
 
-# 加载模型
-model_path = "/root/autodl-tmp/whisper-final-train/final"
+model_path = os.path.join(PROJECT_ROOT, "output", "final")
 processor = WhisperProcessor.from_pretrained(model_path)
 model = WhisperForConditionalGeneration.from_pretrained(
     model_path,
@@ -98,7 +100,8 @@ result = {
 }
 
 import json
-with open("/root/autodl-tmp/whisper-training-report/accuracy_results.json", "w") as f:
+output_file = os.path.join(PROJECT_ROOT, "output", "accuracy_results.json")
+with open(output_file, "w") as f:
     json.dump(result, f, indent=2)
 
-print(f"✅ Results saved to: /root/autodl-tmp/whisper-training-report/accuracy_results.json")
+print(f"✅ Results saved to: {output_file}")

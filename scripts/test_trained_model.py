@@ -1,5 +1,8 @@
 import os
-os.environ["HF_HOME"] = "/root/autodl-tmp/hf_cache"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, "hf_cache")
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
@@ -10,7 +13,7 @@ print("Testing Final Trained Model")
 print("="*60)
 print()
 
-model_path = "/root/autodl-tmp/whisper-final-train/final"
+model_path = os.path.join(PROJECT_ROOT, "output", "final")
 print(f"Loading model from: {model_path}")
 
 # 加载模型
@@ -50,8 +53,8 @@ print("  - Final train loss: 6.7295")
 print("  - Final eval loss: 5.3438")
 print()
 print("💾 Saved Model Files:")
-print("  - Final model: /root/autodl-tmp/whisper-final-train/final/")
-print("  - Checkpoint: /root/autodl-tmp/whisper-final-train/checkpoint-2000/")
+print(f"  - Final model: {os.path.join(PROJECT_ROOT, 'output', 'final')}/")
+print(f"  - Checkpoint: {os.path.join(PROJECT_ROOT, 'output', 'checkpoint-2000')}/")
 print()
 print("🎉 Training Complete!")
 print("="*60)

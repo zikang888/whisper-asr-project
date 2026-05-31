@@ -5,7 +5,8 @@ echo "Whisper Training - Quick Start Script"
 echo "========================================"
 echo ""
 
-cd /root/autodl-tmp/asr-whisper
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
 
 echo "[1/3] Pre-downloading and caching dataset..."
 python -c "
@@ -46,7 +47,7 @@ if [ $? -eq 0 ]; then
     echo "  Config: configs/quick_test_config.yaml"
     echo "  This will run a quick 50-step training to verify everything works"
     echo ""
-    python train.py --config configs/quick_test_config.yaml
+    python scripts/train_yaml.py --config configs/quick_test_config.yaml
 else
     echo ""
     echo "✗ Dataset preparation failed!"

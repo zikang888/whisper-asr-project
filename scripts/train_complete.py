@@ -6,7 +6,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-os.environ["HF_HOME"] = "/root/autodl-tmp/hf_cache"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, "hf_cache")
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 
 import torch
@@ -24,9 +27,9 @@ print("Whisper ASR Complete Training Pipeline")
 print("="*60)
 
 # Configuration
-MODEL_PATH = "/root/autodl-tmp/whisper-small-local"
-OUTPUT_DIR = "/root/autodl-tmp/whisper-final-train"
-REPORT_DIR = "/root/autodl-tmp/whisper-training-report"
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "whisper-small")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
+REPORT_DIR = os.path.join(PROJECT_ROOT, "output")
 
 # Create directories
 os.makedirs(OUTPUT_DIR, exist_ok=True)

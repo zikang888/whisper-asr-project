@@ -5,7 +5,8 @@ echo "Preparing Whisper Training Dataset"
 echo "========================================"
 echo ""
 
-cd /root/autodl-tmp/asr-whisper
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
 
 python << 'EOF'
 import os
@@ -36,4 +37,4 @@ EOF
 echo ""
 echo "✓ Dataset preparation complete!"
 echo "You can now start training with:"
-echo "  ./start_training.sh"
+echo "  ./scripts/start_training.sh"

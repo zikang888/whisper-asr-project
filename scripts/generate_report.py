@@ -8,9 +8,12 @@ import numpy as np
 from datetime import datetime
 
 # 设置路径
-MODEL_PATH = "/root/autodl-tmp/whisper-final-train/final"
-OUTPUT_DIR = "/root/autodl-tmp/whisper-training-report"
-TRAIN_LOG_FILE = "/root/autodl-tmp/whisper-final-train-logs-v2/trainer_state.json"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+MODEL_PATH = os.path.join(PROJECT_ROOT, "output", "final")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
+TRAIN_LOG_FILE = os.path.join(PROJECT_ROOT, "output", "trainer_state.json")
 
 # 确保输出目录存在
 os.makedirs(OUTPUT_DIR, exist_ok=True)

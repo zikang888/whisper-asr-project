@@ -5,6 +5,9 @@ echo "Training Status Monitor"
 echo "========================================"
 echo ""
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
+
 while true; do
     clear
     echo "========================================"
@@ -53,7 +56,7 @@ while true; do
             echo ""
         fi
         
-        if [ -f /root/autodl-tmp/whisper-output/checkpoint-* ]; then
+        if [ -f output/checkpoint-* ]; then
             echo "✓ Checkpoints found in output directory"
         fi
     fi

@@ -37,8 +37,8 @@ cp .env.example .env
 ### 4. 下载模型和测试数据
 
 ```bash
-chmod +x download.sh
-./download.sh
+chmod +x scripts/download.sh
+./scripts/download.sh
 ```
 
 ### 5. 开始快速训练（验证）
@@ -60,12 +60,32 @@ chmod +x scripts/*.sh
 .
 ├── .env.example              # 环境变量示例配置
 ├── requirements.txt          # Python 依赖包
-├── download.sh               # 模型和数据下载脚本
 ├── README.md                 # 项目说明文档
-├── scripts/                  # 训练脚本
+├── configs/                  # 训练配置文件
+│   ├── gpu_config.yaml
+│   ├── optimized_config.yaml
+│   ├── quick_test_config.yaml
+│   ├── full_train_config.yaml
+│   ├── full_train_config_v2.yaml
+│   └── final_train_config.yaml
+├── scripts/                  # 所有脚本
+│   ├── download.sh          # 模型和数据下载脚本
+│   ├── hfd.sh               # Hugging Face 下载工具
+│   ├── prepare_dataset.sh   # 数据集准备脚本
+│   ├── quick_start.sh       # 快速启动脚本
+│   ├── start_training.sh    # 开始训练脚本
 │   ├── quick_train.sh       # 快速训练脚本
 │   ├── full_train.sh        # 完整训练脚本
-│   └── train.py             # 主要训练代码
+│   ├── run_optimized_training.sh  # 优化训练脚本
+│   ├── monitor_training.sh  # 训练监控脚本
+│   ├── train.py             # 主要训练代码（环境变量版）
+│   ├── train_yaml.py        # 训练代码（YAML 配置版）
+│   ├── train_complete.py    # 完整训练流水线
+│   ├── train_optimized.py   # 优化训练代码
+│   ├── evaluate_accuracy.py # 准确率评估
+│   ├── test_trained_model.py # 模型测试
+│   ├── generate_report.py   # 报告生成（中文）
+│   └── generate_report_en.py # 报告生成（英文）
 ├── output/                   # 训练输出（自动生成）
 │   └── final/               # 最终模型
 ├── models/                   # 预训练模型（自动下载）
@@ -223,4 +243,4 @@ GitHub: [zikang888](https://github.com/zikang888)
 
 ---
 
-**开始使用：** 只需运行 `./download.sh` 然后 `./scripts/quick_train.sh` 就可以开始训练了！
+**开始使用：** 只需运行 `./scripts/download.sh` 然后 `./scripts/quick_train.sh` 就可以开始训练了！

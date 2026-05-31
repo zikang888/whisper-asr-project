@@ -12,11 +12,12 @@ echo "  - Optimizations: FP16, gradient checkpointing"
 echo "  - Workers: 4"
 echo ""
 
-cd /root/autodl-tmp/asr-whisper
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
 
 echo "Starting training..."
 echo "This will run for the configured max_steps (default: 500)"
 echo "Press Ctrl+C to stop"
 echo ""
 
-python train.py --config configs/optimized_config.yaml
+python scripts/train_yaml.py --config configs/optimized_config.yaml

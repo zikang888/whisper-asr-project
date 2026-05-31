@@ -7,8 +7,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime
 
-MODEL_PATH = "/root/autodl-tmp/whisper-final-train/final"
-OUTPUT_DIR = "/root/autodl-tmp/whisper-training-report"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+MODEL_PATH = os.path.join(PROJECT_ROOT, "output", "final")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 training_data = [

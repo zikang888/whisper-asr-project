@@ -1,9 +1,12 @@
 import os
-os.environ["HF_HOME"] = "/root/autodl-tmp/hf_cache"
-os.environ["HUGGINGFACE_HUB_CACHE"] = "/root/autodl-tmp/hf_cache/hub"
-os.environ["TRANSFORMERS_CACHE"] = "/root/autodl-tmp/hf_cache/transformers"
-os.environ["HF_DATASETS_CACHE"] = "/root/autodl-tmp/hf_cache/datasets"
-os.environ["TOKENIZERS_CACHE"] = "/root/autodl-tmp/hf_cache/tokenizers"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, "hf_cache")
+os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(PROJECT_ROOT, "hf_cache", "hub")
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(PROJECT_ROOT, "hf_cache", "transformers")
+os.environ["HF_DATASETS_CACHE"] = os.path.join(PROJECT_ROOT, "hf_cache", "datasets")
+os.environ["TOKENIZERS_CACHE"] = os.path.join(PROJECT_ROOT, "hf_cache", "tokenizers")
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ["HUGGINGFACE_HUB_DOWNLOAD_TIMEOUT"] = "600"
 
