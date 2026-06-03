@@ -6,6 +6,13 @@
 
 ## Installation
 
+### Step 0: Configure pip mirror (China mainland users)
+
+```bash
+# Use Tsinghua pip mirror for faster downloads
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 ### Step 1: Install PyTorch with CUDA support
 
 Choose ONE based on your CUDA version:
@@ -49,3 +56,4 @@ Edit files in `configs/` to replace `/root/autodl-tmp/` with your local paths.
 - **"CUDA not available"**: You installed CPU-only PyTorch. Reinstall with `--index-url` option.
 - **"ImportError: libcudart.so"**: CUDA version mismatch. Check `nvidia-smi` and match PyTorch CUDA version.
 - **Failed to download model**: Set `HF_ENDPOINT="https://hf-mirror.com"` in `.env`.
+- **pip install timeout / slow**: Use Tsinghua mirror (Step 0) or add `-i https://pypi.tuna.tsinghua.edu.cn/simple`.
