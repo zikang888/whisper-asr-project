@@ -10,6 +10,12 @@
 #   ROCm 5.7:  pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/rocm5.7
 #   CPU only:  pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/cpu
 # ------------------------------------------------------------
+#
+# Tsinghua pip mirror (uncomment for China mainland users):
+# -i https://pypi.tuna.tsinghua.edu.cn/simple
+# --trusted-host pypi.tuna.tsinghua.edu.cn
+#
+# Usage: pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # ====================
 # Core Deep Learning
