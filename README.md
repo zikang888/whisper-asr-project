@@ -22,6 +22,10 @@ cd whisper-asr-training-report
 ### 2. 安装依赖
 
 ```bash
+# 国内用户推荐先配置 pip 清华镜像，加速下载
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 然后安装依赖
 pip install -r requirements.txt
 ```
 
@@ -101,6 +105,15 @@ chmod +x scripts/*.sh
 ```bash
 HF_HOME="./hf_cache"          # 缓存目录
 HF_ENDPOINT="https://hf-mirror.com"  # 镜像源（国内加速）
+```
+
+### pip 清华镜像（国内用户推荐）
+```bash
+# 永久配置 pip 镜像源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 或临时使用：
+# pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ### 快速测试模式
